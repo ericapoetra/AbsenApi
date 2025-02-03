@@ -6,8 +6,12 @@ const csvParser = require("csv-parser");
 let addAbsen = async (req, res, next) => {
   try {
     let results = [];
-    let filePath = req.file ? req.file.path : null;
+    let filePath = null;
     let ip;
+
+    if (req.file) {
+      filePath = req.file.path;
+    }
 
     ip = req.headers["x-forwarded-for"]
       ? req.headers["x-forwarded-for"].split(",")[0]
