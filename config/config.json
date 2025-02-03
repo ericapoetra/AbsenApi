@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "userpr",
+    "password": "pr2020",
+    "database": "dbSF_BizNet_AOPHCIS_TRAINING",
+    "host": "10.14.55.66",
+    "dialect": "mssql"
+  },
+  "test": {
+    "username": "userpr",
+    "password": "pr2020",
+    "database": "dbSF_BizNet_AOPHCIS_TRAINING",
+    "host": "10.14.55.66",
+    "dialect": "mssql",
+    "dialectModule": "tedious"
+  },
+  "production": {
+    "username": "userpr",
+    "password": "pr2020",
+    "database": "dbSF_BizNet_AOPHCIS_TRAINING",
+    "host": "10.14.55.66",
+    "dialect": "mssql",
+    "dialectModule": "tedious"
+  }
+}

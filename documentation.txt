@@ -1,0 +1,66 @@
+Base URL: 10.14.55.218
+
+Method:POST 
+1.Get Token
+Description : Untuk mendapatkan token login yang nantinya akan menjadi penentu BU apa
+path: /gettoken
+body: 
+{
+    "company":{{Short Name Company, ex (SKF)}},
+    "npk":{{NPK karyawan yang di jadikan admin}}
+}
+
+Response
+status:200
+Body : 
+{"token":"Bearer genereted token"}
+
+Method:POST
+2.Insert Absen Menggunakan JSON
+Description : Untuk insert absen secara satu persatu menggunakan JSON
+path: /insertAbsen
+
+Headers:
+{
+    Bearer Token :{{Token yang didapat dengan menggunakan get token}},
+    Content-Type : "application/json"
+}
+
+body: 
+
+{
+    "badgeno":{{NPK Karyawan yang absen}},
+    "checktime":{{jam absen karyawan}},
+    "checktype":{{status in atau out dengan code I untuk in dan O untuk out}},
+    "sensor_id":{{Nama Mesin Absen}}
+}
+
+Response
+status:200
+Body : 
+{
+   "message": "Data processed successfully"
+}
+
+Method:POST
+2.Insert Absen Menggunakan CSV
+Description : Untuk insert absen bulking menggunakan CSV
+path: /insertAbsen
+
+Headers:
+{
+    Bearer Token :{{Token yang didapat dengan menggunakan get token}},
+    Content-Type : "multipart/form-data"
+}
+
+body: 
+{
+    "absen":{{File absen yang ingin di upload}}
+}
+
+Response
+status:200
+Body : 
+{
+   "message": "Data processed successfully"
+}
