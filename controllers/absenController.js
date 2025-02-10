@@ -64,14 +64,6 @@ let addAbsen = async (req, res, next) => {
       });
     });
 
-    await Promise.all(promises);
-
-    // if (filePath) {
-    //   await fs
-    //     .unlink(filePath)
-    //     .catch((err) => console.error("File Deletion Error:", err));
-    // }
-
     res.status(200).json({ message: "Data processed successfully", data });
   } catch (error) {
     console.error("Processing Error:", error);
